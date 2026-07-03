@@ -77,6 +77,16 @@ pip install ziglang
 python -m ziglang build-exe validator.zig -target wasm32-freestanding -O ReleaseSmall -fno-entry -rdynamic
 ```
 
+## Works great with: dualpath-lrm
+
+[dualpath-lrm](../dualpath-lrm) gives agents diff-only context: a hashed
+baseline (`.lrm/state.json`) plus unified diffs instead of re-reading a whole
+project. That baseline is exactly the kind of artifact this server protects —
+sign it after `lrm_scan` (`sign_artifact`), verify it before applying any
+package (`verify_artifact`). A tampered baseline is rejected before the agent
+applies diffs against a state it never saw. No code changes on either side —
+the agent is the glue.
+
 ## Honest scope
 
 - Validators currently cover **two content types** (HTML, SuperMD). The
