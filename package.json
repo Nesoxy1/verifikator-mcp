@@ -1,0 +1,10 @@
+{
+  "name": "verifikator-mcp",
+  "version": "1.0.0",
+  "description": "Deterministička kapija za AI agent harnesse: WASM validacija, self-healing, kriptografsko poreklo i memorija otporna na trovanje — kao MCP server bez zavisnosti.",
+  "type": "module",
+  "bin": { "verifikator-mcp": "./server.js" },
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}
