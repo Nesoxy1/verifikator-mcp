@@ -79,7 +79,7 @@ python -m ziglang build-exe validator.zig -target wasm32-freestanding -O Release
 
 ## Works great with: dualpath-lrm
 
-[dualpath-lrm](../dualpath-lrm) gives agents diff-only context: a hashed
+[dualpath-lrm](https://github.com/Nesoxy1/dualpath-lrm?tab=readme-ov-file) gives agents diff-only context: a hashed
 baseline (`.lrm/state.json`) plus unified diffs instead of re-reading a whole
 project. That baseline is exactly the kind of artifact this server protects —
 sign it after `lrm_scan` (`sign_artifact`), verify it before applying any
