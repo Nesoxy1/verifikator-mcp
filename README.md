@@ -39,12 +39,12 @@ Protocol:
 
 | Tool | What it does |
 |---|---|
-| `validate_html` | HTML through a real Zig/WASM validator: unbalanced tags, `<img>` without `alt`, `http://` links, `<script>` (JSON-LD allowed), empty `href`, unclosed comments — with line numbers |
+| `validate_html` | HTML through a real Zig/WASM validator: unbalanced tags, `<img>` without `alt`, `http://` links, `<script>` (JSON-LD allowed), empty `href`, unclosed comments with line numbers |
 | `validate_smd` | SuperMD/Ziggy rules for the Zine static site generator |
 | `heal` | Self-healing loop: proposes minimal patches, **measures each one** through WASM (defect count before/after), applies only patches that provably reduce defects |
 | `sign_artifact` | SHA-256 + ECDSA P-256 provenance; the key pair is generated locally in `~/.verifikator-mcp` and never leaves your machine |
 | `verify_artifact` | Detects any modification after signing — including a forged manifest (signature check against the embedded public key) |
-| `remember_lesson` | **Memory with proof**: submit content before/after a fix; the server re-validates both itself and stores only defect classes that demonstrably disappeared. No proof — rejected. A guard against memory poisoning |
+| `remember_lesson` | **Memory with proof**: submit content before/after a fix; the server re-validates both itself and stores only defect classes that demonstrably disappeared. No proof rejected. A guard against memory poisoning |
 | `recall_lessons` | Inspect verified memory: lessons, usage counts, stats (stored / hits / rejected) |
 | `audit_url` | Agent-readiness score (0–100) for any website: content without JS, JSON-LD, llms.txt, robots.txt AI-bot blocks, machine-readable contact |
 
@@ -69,7 +69,7 @@ agent's attempt to store an unproven lesson**:
 
 ## The WASM validator
 
-`validator.wasm` (~4 KB) is compiled from [`validator.zig`](validator.zig) —
+`validator.wasm` (~4 KB) is compiled from [`validator.zig`](validator.zig) 
 freestanding wasm32, no allocator, no standard library. Verify it yourself:
 
 ```
@@ -84,8 +84,7 @@ baseline (`.lrm/state.json`) plus unified diffs instead of re-reading a whole
 project. That baseline is exactly the kind of artifact this server protects —
 sign it after `lrm_scan` (`sign_artifact`), verify it before applying any
 package (`verify_artifact`). A tampered baseline is rejected before the agent
-applies diffs against a state it never saw. No code changes on either side —
-the agent is the glue.
+applies diffs against a state it never saw. No code changes on either side the agent is the glue.
 
 ## Honest scope
 
