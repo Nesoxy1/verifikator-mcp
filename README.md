@@ -21,7 +21,7 @@ This server adds the missing layer, built on three rules:
 ## Install
 
 No build step, no dependencies. Clone (or download) and plug into any MCP
-client — Claude Desktop, OpenClaw, or anything speaking the Model Context
+client Claude Desktop, OpenClaw, or anything speaking the Model Context
 Protocol:
 
 ```json
