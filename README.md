@@ -1,14 +1,14 @@
 # 🛡️ verifikator-mcp
 
 **A deterministic verification gate for AI agent harnesses.**
-Agents generate — the Verifier proves. An MCP server with zero dependencies
+Agents generate the Verifier proves. An MCP server with zero dependencies
 (Node 18+), validation running in a real WebAssembly module hand-written in Zig,
 cryptographic artifact provenance, and poison-resistant memory.
 
 ## Why
 
 Agent frameworks learn skills from their own "successful" trajectories and
-execute tools around the clock — with no hard verification anywhere in the
+execute tools around the clock with no hard verification anywhere in the
 loop. But *successful* was never proven. A lucky trajectory becomes a
 permanent skill. A poisoned one does too.
 
